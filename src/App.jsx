@@ -59,10 +59,14 @@ function App() {
         />
 
         <main className="flex-1">
-          <Routes>
+<Routes>
             <Route 
               path="/" 
               element={<HomePage onAddToCart={addToCart} />} 
+            />
+            <Route 
+              path="/categories" 
+              element={<ShopPage onAddToCart={addToCart} />} 
             />
             <Route 
               path="/shop" 
@@ -73,6 +77,34 @@ function App() {
               element={<ProductPage onAddToCart={addToCart} />} 
             />
             <Route 
+              path="/cart" 
+              element={<CheckoutPage 
+                cartItems={cartItems}
+                cartTotal={getCartTotal()}
+                onOrderComplete={handleOrderComplete}
+              />} 
+            />
+            <Route 
+              path="/orders" 
+              element={<HomePage onAddToCart={addToCart} />} 
+            />
+            <Route 
+              path="/account" 
+              element={<HomePage onAddToCart={addToCart} />} 
+            />
+            <Route 
+              path="/points" 
+              element={<HomePage onAddToCart={addToCart} />} 
+            />
+            <Route 
+              path="/deals" 
+              element={<ShopPage onAddToCart={addToCart} />} 
+            />
+            <Route 
+              path="/contact" 
+              element={<HomePage onAddToCart={addToCart} />} 
+            />
+            <Route 
               path="/checkout" 
               element={
                 <CheckoutPage 
@@ -81,10 +113,6 @@ function App() {
                   onOrderComplete={handleOrderComplete}
                 />
               } 
-            />
-            <Route 
-              path="/deals" 
-              element={<ShopPage onAddToCart={addToCart} />} 
             />
             <Route 
               path="/new-arrivals" 

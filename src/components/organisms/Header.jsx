@@ -10,10 +10,15 @@ const Header = ({ cartItemCount = 0, onCartClick, onSearch, searchSuggestions = 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const navigationItems = [
-    { name: "Shop", href: "/shop", hasDropdown: true },
-    { name: "Deals", href: "/deals" },
-    { name: "New Arrivals", href: "/new-arrivals" },
+const navigationItems = [
+    { name: "Home", href: "/" },
+    { name: "Categories", href: "/categories" },
+    { name: "Cart", href: "/cart" },
+    { name: "Orders", href: "/orders" },
+    { name: "Account", href: "/account" },
+    { name: "Sabzi Points", href: "/points" },
+    { name: "Deals & Offers", href: "/deals" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   const categories = [
@@ -49,17 +54,14 @@ const Header = ({ cartItemCount = 0, onCartClick, onSearch, searchSuggestions = 
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navigationItems.map((item) => (
+<nav className="hidden lg:flex items-center space-x-6">
+            {navigationItems.slice(0, 4).map((item) => (
               <div key={item.name} className="relative group">
                 <Link
                   to={item.href}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-primary-600 font-medium transition-colors text-sm"
                 >
                   <span>{item.name}</span>
-                  {item.hasDropdown && (
-                    <ApperIcon name="ChevronDown" className="w-4 h-4" />
-                  )}
                 </Link>
                 
                 {item.hasDropdown && (
@@ -121,19 +123,18 @@ const Header = ({ cartItemCount = 0, onCartClick, onSearch, searchSuggestions = 
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
+{isMobileMenuOpen && (
         <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="px-4 py-4 space-y-2">
             {navigationItems.map((item) => (
               <div key={item.name}>
                 <Link
                   to={item.href}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors"
+                  className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors font-medium"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item.name}
+                  <span>{item.name}</span>
                 </Link>
-                
                 {item.hasDropdown && (
                   <div className="ml-4 mt-2 space-y-1">
                     {categories.map((category) => (
