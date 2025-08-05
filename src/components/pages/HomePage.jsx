@@ -5,6 +5,9 @@ import HeroSection from "@/components/organisms/HeroSection";
 import FeaturedProducts from "@/components/organisms/FeaturedProducts";
 import CategoryShowcase from "@/components/organisms/CategoryShowcase";
 import PromotionalBanner from "@/components/organisms/PromotionalBanner";
+import RecipeBundles from "@/components/organisms/RecipeBundles";
+import QualityPromise from "@/components/organisms/QualityPromise";
+import WhatsAppBanner from "@/components/organisms/WhatsAppBanner";
 import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import { productService } from "@/services/api/productService";
@@ -66,9 +69,13 @@ const HomePage = ({ onAddToCart }) => {
 
   const featuredProducts = products.filter(product => product.featured);
 
-  return (
+return (
     <div className="min-h-screen bg-white">
       <HeroSection />
+      
+      <CategoryShowcase categories={categories} />
+      
+      <PromotionalBanner />
       
       <FeaturedProducts
         products={featuredProducts.length > 0 ? featuredProducts : products}
@@ -76,9 +83,11 @@ const HomePage = ({ onAddToCart }) => {
         onViewAll={handleViewAllProducts}
       />
       
-      <CategoryShowcase categories={categories} />
+      <RecipeBundles onAddToCart={handleAddToCart} />
       
-      <PromotionalBanner />
+      <QualityPromise />
+      
+      <WhatsAppBanner />
     </div>
   );
 };

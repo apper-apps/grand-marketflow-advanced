@@ -55,8 +55,8 @@ const PromotionalBanner = () => {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button
-                onClick={() => navigate("/deals")}
+<Button
+                onClick={() => navigate("/shop?deals=true")}
                 size="xl"
                 className="bg-white text-primary-600 hover:bg-gray-100 shadow-2xl"
               >
