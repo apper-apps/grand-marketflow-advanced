@@ -80,9 +80,9 @@ const ProductPage = ({ onAddToCart }) => {
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : 0;
 
-  return (
+return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         {/* Breadcrumb */}
         <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-8">
           <button onClick={() => navigate("/")} className="hover:text-primary-600">
@@ -97,8 +97,8 @@ const ProductPage = ({ onAddToCart }) => {
         </nav>
 
         {/* Product Details */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-6 lg:p-8 mb-8 sm:mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
             {/* Images */}
             <div className="space-y-4">
               <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden">

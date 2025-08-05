@@ -49,7 +49,7 @@ const handleCheckout = () => {
     clearCart();
   };
 
-  return (
+return (
     <BrowserRouter>
       <div className="min-h-screen bg-white flex flex-col">
         <Header
@@ -59,7 +59,7 @@ const handleCheckout = () => {
           searchSuggestions={searchSuggestions}
         />
 
-        <main className="flex-1">
+        <main className="flex-1 w-full">
 <Routes>
             <Route 
               path="/" 

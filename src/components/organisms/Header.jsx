@@ -35,7 +35,7 @@ const navigationItems = [
         <div className="flex items-center justify-between h-16">
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
-            <Button
+<Button
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -54,7 +54,7 @@ const navigationItems = [
           </Link>
 
           {/* Desktop Navigation */}
-<nav className="hidden lg:flex items-center space-x-6">
+<nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navigationItems.slice(0, 4).map((item) => (
               <div key={item.name} className="relative group">
                 <Link
@@ -124,13 +124,13 @@ const navigationItems = [
 
       {/* Mobile Menu */}
 {isMobileMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200 bg-white">
+        <div className="md:hidden border-t border-gray-200 bg-white">
           <div className="px-4 py-4 space-y-2">
             {navigationItems.map((item) => (
               <div key={item.name}>
                 <Link
                   to={item.href}
-                  className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors font-medium"
+                  className="flex items-center px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors font-medium text-lg"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <span>{item.name}</span>
@@ -141,7 +141,7 @@ const navigationItems = [
                       <Link
                         key={category}
                         to={`/shop?category=${category.toLowerCase().replace(/\s+/g, "-")}`}
-                        className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors"
+                        className="block px-4 py-2 text-base text-gray-600 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {category}

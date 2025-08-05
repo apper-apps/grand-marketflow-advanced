@@ -117,25 +117,25 @@ const ShopPage = ({ onAddToCart }) => {
     return <Error message={error} onRetry={loadData} />;
   }
 
-  return (
+return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-display font-bold text-gray-900 mb-4">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-4">
             Shop All Products
           </h1>
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-            <p className="text-gray-600">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <p className="text-gray-600 text-sm sm:text-base">
               Showing {filteredProducts.length} of {products.length} products
             </p>
-            
-            <div className="flex items-center gap-4">
+<div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
               {/* Mobile Filter Toggle */}
               <Button
                 variant="outline"
                 onClick={() => setShowFilters(!showFilters)}
-                className="lg:hidden"
+                className="md:hidden w-full sm:w-auto"
+                size="sm"
               >
                 <ApperIcon name="Filter" className="w-4 h-4 mr-2" />
                 Filters
@@ -145,7 +145,7 @@ const ShopPage = ({ onAddToCart }) => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="w-full sm:w-auto px-3 sm:px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm sm:text-base"
               >
                 <option value="name">Sort by Name</option>
                 <option value="price-low">Price: Low to High</option>
@@ -156,9 +156,9 @@ const ShopPage = ({ onAddToCart }) => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
           {/* Sidebar Filters */}
-          <div className={`lg:w-64 space-y-6 ${showFilters ? "block" : "hidden lg:block"}`}>
+          <div className={`md:w-64 lg:w-72 space-y-4 sm:space-y-6 ${showFilters ? "block" : "hidden md:block"}`}>
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <CategoryFilter
                 categories={categories}
