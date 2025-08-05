@@ -73,27 +73,28 @@ const QualityPromise = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {promises.map((promise, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="text-center group"
+              className="text-center group cursor-pointer"
             >
-              <div className="relative inline-flex items-center justify-center w-16 h-16 mb-6">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+              <div className="relative inline-flex items-center justify-center w-20 h-20 mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500 via-primary-600 to-accent-500 rounded-2xl opacity-15 group-hover:opacity-25 transition-all duration-300 shadow-lg group-hover:shadow-xl"></div>
+                <div className="absolute inset-1 bg-white rounded-xl shadow-inner"></div>
                 <ApperIcon
                   name={promise.icon}
-                  className="w-8 h-8 text-primary-600 relative z-10"
+                  className="w-10 h-10 text-primary-600 relative z-10 group-hover:text-primary-700 transition-colors duration-300"
                 />
               </div>
               
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors duration-300">
                 {promise.title}
               </h3>
               
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                 {promise.description}
               </p>
             </motion.div>
