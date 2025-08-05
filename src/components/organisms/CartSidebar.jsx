@@ -12,7 +12,10 @@ const CartSidebar = ({
   onRemoveItem,
   onCheckout 
 }) => {
-  const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const pointsEarned = Math.floor(subtotal * 0.1);
+  const deliveryFee = subtotal >= 50 ? 0 : 5.99;
+  const total = subtotal + deliveryFee;
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -71,9 +74,34 @@ const CartSidebar = ({
             </div>
 
             {/* Footer */}
-            {cartItems.length > 0 && (
+{cartItems.length > 0 && (
               <div className="border-t border-gray-200 p-6 space-y-4">
-                <div className="flex items-center justify-between text-lg font-semibold">
+                {/* Order Summary */}
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Subtotal</span>
+                    <span className="text-gray-900">${subtotal.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 flex items-center">
+                      <ApperIcon name="Star" className="w-3 h-3 mr-1 text-yellow-500" />
+                      Points Earned
+                    </span>
+                    <span className="text-yellow-600">+{pointsEarned}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Delivery Fee</span>
+                    <span className="text-gray-900">
+                      {deliveryFee === 0 ? (
+                        <span className="text-green-600">FREE</span>
+                      ) : (
+                        `$${deliveryFee.toFixed(2)}`
+                      )}
+                    </span>
+                  </div>
+                </div>
+                
+                <div className="flex items-center justify-between text-lg font-semibold border-t border-gray-200 pt-3">
                   <span>Total:</span>
                   <span className="text-2xl gradient-primary bg-clip-text text-transparent">
                     ${total.toFixed(2)}
@@ -85,8 +113,8 @@ const CartSidebar = ({
                   size="lg"
                   className="w-full"
                 >
-                  <ApperIcon name="CreditCard" className="w-5 h-5 mr-2" />
-                  Checkout
+                  <ApperIcon name="ShoppingCart" className="w-5 h-5 mr-2" />
+                  View Cart
                 </Button>
                 
                 <Button 

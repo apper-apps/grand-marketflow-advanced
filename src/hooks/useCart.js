@@ -77,6 +77,11 @@ export const useCart = () => {
     return cartItems.reduce((count, item) => count + item.quantity, 0);
   };
 
+const getPointsEarned = () => {
+    const total = getCartTotal();
+    return Math.floor(total * 0.1); // 10% of total as points
+  };
+
   return {
     cartItems,
     addToCart,
@@ -84,6 +89,7 @@ export const useCart = () => {
     removeFromCart,
     clearCart,
     getCartTotal,
-    getCartItemCount
+    getCartItemCount,
+    getPointsEarned
   };
 };

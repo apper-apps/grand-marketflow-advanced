@@ -31,6 +31,7 @@ const CheckoutPage = ({ cartItems = [], cartTotal = 0, onOrderComplete }) => {
     shippingMethod: "standard"
   });
 
+const pointsEarned = Math.floor(cartTotal * 0.1);
   const shippingCost = formData.shippingMethod === "express" ? 15.99 : 5.99;
   const tax = cartTotal * 0.08;
   const finalTotal = cartTotal + shippingCost + tax;
@@ -410,10 +411,17 @@ const CheckoutPage = ({ cartItems = [], cartTotal = 0, onOrderComplete }) => {
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 pt-4 space-y-2">
+<div className="border-t border-gray-200 pt-4 space-y-2">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600">Subtotal</span>
                   <span className="text-gray-900">${cartTotal.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600 flex items-center">
+                    <ApperIcon name="Star" className="w-3 h-3 mr-1 text-yellow-500" />
+                    Points Earned
+                  </span>
+                  <span className="text-yellow-600">+{pointsEarned} pts</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600">Shipping</span>

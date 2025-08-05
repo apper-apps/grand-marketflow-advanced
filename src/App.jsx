@@ -7,6 +7,7 @@ import CartSidebar from "@/components/organisms/CartSidebar";
 import HomePage from "@/components/pages/HomePage";
 import ShopPage from "@/components/pages/ShopPage";
 import ProductPage from "@/components/pages/ProductPage";
+import CartPage from "@/components/pages/CartPage";
 import CheckoutPage from "@/components/pages/CheckoutPage";
 import { useCart } from "@/hooks/useCart";
 import { productService } from "@/services/api/productService";
@@ -39,9 +40,9 @@ function App() {
     }
   };
 
-  const handleCheckout = () => {
+const handleCheckout = () => {
     setIsCartOpen(false);
-    // Navigation will be handled by the checkout button click
+    window.location.href = '/cart';
   };
 
   const handleOrderComplete = () => {
@@ -76,13 +77,16 @@ function App() {
               path="/product/:id" 
               element={<ProductPage onAddToCart={addToCart} />} 
             />
-            <Route 
+<Route 
               path="/cart" 
-              element={<CheckoutPage 
-                cartItems={cartItems}
-                cartTotal={getCartTotal()}
-                onOrderComplete={handleOrderComplete}
-              />} 
+              element={
+                <CartPage 
+                  cartItems={cartItems}
+                  cartTotal={getCartTotal()}
+                  onUpdateQuantity={updateQuantity}
+                  onRemoveItem={removeFromCart}
+                />
+              }
             />
             <Route 
               path="/orders" 
