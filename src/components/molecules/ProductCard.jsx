@@ -32,21 +32,21 @@ const ProductCard = ({ product, onAddToCart, className }) => {
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
         
-        {product.featured && (
+{product.organic && (
           <Badge 
             variant="accent" 
-            className="absolute top-3 left-3 transform -rotate-3"
+            className="absolute top-3 left-3 transform -rotate-3 bg-green-500 text-white"
           >
-            Featured
+            Organic
           </Badge>
         )}
         
-        {isOnSale && (
+        {product.fresh && (
           <Badge 
-            variant="sale" 
-            className="absolute top-3 right-3 transform rotate-3"
+            variant="secondary" 
+            className="absolute top-3 right-3 transform rotate-3 bg-blue-500 text-white"
           >
-            -{discountPercent}%
+            Fresh
           </Badge>
         )}
 
@@ -70,31 +70,31 @@ const ProductCard = ({ product, onAddToCart, className }) => {
         </div>
       </div>
 
-      <div className="p-4">
+<div className="p-4">
         <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors">
           {product.name}
         </h3>
         
-        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
-          {product.description}
+        <p className="text-sm text-gray-600 mb-3 font-medium">
+          By {product.supplier || "Local Vendor"}
         </p>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="text-xl font-bold text-gray-900">
-              ${product.price.toFixed(2)}
+              ₹{product.price.toFixed(2)}
             </span>
             {isOnSale && (
               <span className="text-sm text-gray-500 line-through">
-                ${product.originalPrice.toFixed(2)}
+                ₹{product.originalPrice.toFixed(2)}
               </span>
             )}
           </div>
           
-          <div className="flex items-center text-yellow-400">
-            <ApperIcon name="Star" className="w-4 h-4 fill-current" />
-            <span className="text-sm text-gray-600 ml-1">
-              {product.rating || "4.5"}
+          <div className="flex items-center text-green-600">
+            <ApperIcon name="Coins" className="w-4 h-4" />
+            <span className="text-sm font-medium ml-1">
+              {product.sabziPoints || "10"} pts
             </span>
           </div>
         </div>
