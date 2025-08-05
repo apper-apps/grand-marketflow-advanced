@@ -9,6 +9,8 @@ import ShopPage from "@/components/pages/ShopPage";
 import ProductPage from "@/components/pages/ProductPage";
 import CartPage from "@/components/pages/CartPage";
 import CheckoutPage from "@/components/pages/CheckoutPage";
+import OrderConfirmationPage from "@/components/pages/OrderConfirmationPage";
+import OrderTrackingPage from "@/components/pages/OrderTrackingPage";
 import { useCart } from "@/hooks/useCart";
 import { productService } from "@/services/api/productService";
 
@@ -88,9 +90,9 @@ return (
                 />
               }
             />
-            <Route 
+<Route 
               path="/orders" 
-              element={<HomePage onAddToCart={addToCart} />} 
+              element={<OrderTrackingPage />} 
             />
             <Route 
               path="/account" 
@@ -107,6 +109,10 @@ return (
             <Route 
               path="/contact" 
               element={<HomePage onAddToCart={addToCart} />} 
+            />
+            <Route 
+              path="/order-confirmation" 
+              element={<OrderConfirmationPage />} 
             />
             <Route 
               path="/checkout" 

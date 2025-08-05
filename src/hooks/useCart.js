@@ -82,7 +82,30 @@ const getPointsEarned = () => {
     return Math.floor(total * 0.1); // 10% of total as points
   };
 
-  return {
+  const saveOrder = (orderData) => {
+    const order = {
+      id: Date.now(),
+      orderNumber: `MF${Date.now().toString().slice(-6)}`,
+      date: new Date().toISOString(),
+      status: "processing",
+      items: cartItems.length,
+      total: getCartTotal(),
+      cartItems: [...cartItems],
+      ...orderData
+    };
+
+    const existingOrders = JSON.parse(localStorage.getItem("marketflow-orders") || "[]");
+    existingOrders.unshift(order);
+    localStorage.setItem("marketflow-orders", JSON.stringify(existingOrders));
+    
+    return order;
+  };
+
+  const getOrders = () => {
+    return JSON.parse(localStorage.getItem("marketflow-orders") || "[]");
+  };
+
+return {
     cartItems,
     addToCart,
     updateQuantity,
@@ -90,6 +113,8 @@ const getPointsEarned = () => {
     clearCart,
     getCartTotal,
     getCartItemCount,
-    getPointsEarned
+    getPointsEarned,
+    saveOrder,
+    getOrders
   };
 };
