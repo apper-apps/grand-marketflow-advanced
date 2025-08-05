@@ -55,8 +55,8 @@ const HomePage = ({ onAddToCart }) => {
 if (loading) {
     return (
       <div className="min-h-screen bg-gray-50">
-<div className="h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-primary-600 to-accent-600 shimmer"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+<div className="h-48 sm:h-64 md:h-80 lg:h-96 bg-gradient-to-br from-primary-600 to-accent-600 shimmer"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
           <Loading type="grid" />
         </div>
       </div>

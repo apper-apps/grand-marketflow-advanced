@@ -134,18 +134,18 @@ return (
               <Button
                 variant="outline"
                 onClick={() => setShowFilters(!showFilters)}
-                className="md:hidden w-full sm:w-auto"
+                className="lg:hidden w-full sm:w-auto"
                 size="sm"
               >
                 <ApperIcon name="Filter" className="w-4 h-4 mr-2" />
-                Filters
+                {showFilters ? 'Hide Filters' : 'Show Filters'}
               </Button>
 
               {/* Sort Dropdown */}
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full sm:w-auto px-3 sm:px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm sm:text-base"
+                className="w-full sm:w-auto px-3 sm:px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm sm:text-base min-w-[200px]"
               >
                 <option value="name">Sort by Name</option>
                 <option value="price-low">Price: Low to High</option>
@@ -156,10 +156,10 @@ return (
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
+<div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
           {/* Sidebar Filters */}
-          <div className={`md:w-64 lg:w-72 space-y-4 sm:space-y-6 ${showFilters ? "block" : "hidden md:block"}`}>
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+          <div className={`lg:w-64 xl:w-72 space-y-4 sm:space-y-6 ${showFilters ? "block" : "hidden lg:block"}`}>
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
               <CategoryFilter
                 categories={categories}
                 selectedCategory={selectedCategory}
@@ -167,7 +167,7 @@ return (
               />
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100">
               <PriceFilter
                 priceRange={priceRange}
                 onPriceChange={setPriceRange}
@@ -178,6 +178,7 @@ return (
               variant="outline"
               onClick={clearFilters}
               className="w-full"
+              size="sm"
             >
               <ApperIcon name="RotateCcw" className="w-4 h-4 mr-2" />
               Clear Filters

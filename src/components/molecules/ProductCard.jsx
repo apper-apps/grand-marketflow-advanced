@@ -25,13 +25,26 @@ const ProductCard = ({ product, onAddToCart, className }) => {
 
   return (
     <Card hover className={cn("group relative", className)} onClick={handleCardClick}>
-      <div className="relative aspect-square overflow-hidden">
+<div className="relative aspect-square overflow-hidden">
         <img
           src={product.images[0]}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         />
         
+        {/* Organic/Fresh Tag */}
+        {(product.organic || product.fresh) && (
+          <Badge className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1">
+            {product.organic ? 'Organic' : 'Fresh'}
+          </Badge>
+        )}
+        
+        {/* Sale Badge */}
+        {isOnSale && (
+          <Badge className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1">
+            -{discountPercent}%
+          </Badge>
+        )}
 {product.organic && (
           <Badge 
             variant="accent" 

@@ -36,18 +36,18 @@ const FeaturedProducts = ({ products, onAddToCart, onViewAll }) => {
           </p>
         </motion.div>
 
-        <motion.div
+<motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
         >
           {products.slice(0, 8).map((product) => (
             <motion.div key={product.Id} variants={itemVariants}>
               <ProductCard
                 product={product}
                 onAddToCart={onAddToCart}
-                className="h-full"
+                className="h-full product-card-hover"
               />
             </motion.div>
           ))}
