@@ -1,0 +1,38 @@
+[
+  {
+    "Id": 1,
+    "name": "Electronics",
+    "slug": "electronics",
+    "parentId": null
+  },
+  {
+    "Id": 2,
+    "name": "Clothing",
+    "slug": "clothing",
+    "parentId": null
+  },
+  {
+    "Id": 3,
+    "name": "Home & Garden",
+    "slug": "home-garden",
+    "parentId": null
+  },
+  {
+    "Id": 4,
+    "name": "Sports",
+    "slug": "sports",
+    "parentId": null
+  },
+  {
+    "Id": 5,
+    "name": "Books",
+    "slug": "books",
+    "parentId": null
+  },
+  {
+    "Id": 6,
+    "name": "Beauty",
+    "slug": "beauty",
+    "parentId": null
+  }
+]
