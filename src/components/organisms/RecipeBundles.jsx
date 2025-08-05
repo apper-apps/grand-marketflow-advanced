@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { productService } from "@/services/api/productService";
-import ApperIcon from "@/components/ApperIcon";
-import Loading from "@/components/ui/Loading";
-import Badge from "@/components/atoms/Badge";
-import Button from "@/components/atoms/Button";
-import Card from "@/components/atoms/Card";
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Button from '@/components/atoms/Button';
+import Card from '@/components/atoms/Card';
+import Badge from '@/components/atoms/Badge';
+import ApperIcon from '@/components/ApperIcon';
+import Loading from '@/components/ui/Loading';
+import { productService } from '@/services/api/productService';
 
 const RecipeBundles = ({ onAddToCart }) => {
   const navigate = useNavigate();
@@ -79,12 +79,12 @@ const RecipeBundles = ({ onAddToCart }) => {
           </p>
         </motion.div>
 
-<motion.div
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {bundles.map((bundle) => (
             <motion.div key={bundle.Id} variants={itemVariants}>
@@ -145,82 +145,6 @@ const RecipeBundles = ({ onAddToCart }) => {
           ))}
         </motion.div>
 
-        {/* Mobile Horizontal Scroll */}
-        <div className="md:hidden">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex space-x-6 overflow-x-auto pb-4 scrollbar-hide"
-style={{ scrollSnapType: 'x mandatory' }}
-          >
-            {bundles.map((bundle) => (
-              <motion.div 
-                key={bundle.Id} 
-                variants={itemVariants}
-                className="flex-shrink-0 w-80"
-                style={{ scrollSnapAlign: 'start' }}
-              >
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 group h-full">
-                  <div className="relative">
-                    <img
-                      src={bundle.image}
-                      alt={bundle.name}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <Badge className="absolute top-4 left-4 bg-green-500 text-white">
-                      Save ${bundle.savings.toFixed(2)}
-                    </Badge>
-                  </div>
-                  
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {bundle.name}
-                    </h3>
-                    <p className="text-gray-600 mb-4 text-sm">
-                      {bundle.description}
-                    </p>
-                    
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-xl font-bold text-primary-600">
-                          ${bundle.bundlePrice.toFixed(2)}
-                        </span>
-                        <span className="text-sm text-gray-500 line-through">
-                          ${bundle.originalPrice.toFixed(2)}
-                        </span>
-                      </div>
-                      <div className="flex items-center text-xs text-gray-500">
-                        <ApperIcon name="Package" className="w-4 h-4 mr-1" />
-                        {bundle.products.length} items
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Button
-                        onClick={() => handleAddBundle(bundle)}
-                        className="w-full text-sm"
-                        size="sm"
-                      >
-                        <ApperIcon name="ShoppingCart" className="w-4 h-4 mr-2" />
-                        Add Bundle
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={() => navigate(`/bundle/${bundle.Id}`)}
-                        className="w-full text-sm"
-                        size="sm"
-                      >
-                        View Details
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-))}
-          </motion.div>
-        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -12,11 +12,11 @@ const WhatsAppBanner = () => {
   };
 
   return (
-<section className="py-16 bg-gradient-to-br from-green-500 via-green-600 to-emerald-700 relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-r from-green-500 via-green-600 to-green-700 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 border-4 border-white rounded-full animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-24 h-24 border-4 border-white rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-4 border-white rounded-full animate-pulse delay-500"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 border-4 border-white rounded-full"></div>
+        <div className="absolute bottom-10 right-10 w-24 h-24 border-4 border-white rounded-full"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-4 border-white rounded-full"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,9 +26,9 @@ const WhatsAppBanner = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center justify-center w-28 h-28 bg-white rounded-full mb-8 shadow-2xl"
+            className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full mb-8 shadow-2xl"
           >
-            <ApperIcon name="ShoppingCart" className="w-14 h-14 text-green-600" />
+            <ApperIcon name="MessageCircle" className="w-12 h-12 text-green-600" />
           </motion.div>
 
           <motion.h2
@@ -38,7 +38,7 @@ const WhatsAppBanner = () => {
             transition={{ delay: 0.2 }}
             className="text-4xl lg:text-5xl font-display font-bold text-white mb-6"
           >
-            Order via WhatsApp!
+            Need Help? Chat with Us!
           </motion.h2>
 
           <motion.p
@@ -48,8 +48,8 @@ const WhatsAppBanner = () => {
             transition={{ delay: 0.3 }}
             className="text-xl text-green-100 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Skip the cart - place your order directly through WhatsApp! Get personalized service, 
-            instant confirmation, and special deals available only through chat.
+            Get instant support from our friendly customer service team. 
+            Whether you need product recommendations, order assistance, or have questions about our services.
           </motion.p>
 
           <motion.div
@@ -60,16 +60,16 @@ const WhatsAppBanner = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8"
           >
             <div className="flex items-center text-white">
+              <ApperIcon name="Clock" className="w-5 h-5 mr-2 text-green-200" />
+              <span className="font-medium">Available 24/7</span>
+            </div>
+            <div className="flex items-center text-white">
               <ApperIcon name="Zap" className="w-5 h-5 mr-2 text-green-200" />
-              <span className="font-medium">Instant Ordering</span>
+              <span className="font-medium">Instant Response</span>
             </div>
             <div className="flex items-center text-white">
-              <ApperIcon name="Percent" className="w-5 h-5 mr-2 text-green-200" />
-              <span className="font-medium">Exclusive Discounts</span>
-            </div>
-            <div className="flex items-center text-white">
-              <ApperIcon name="Truck" className="w-5 h-5 mr-2 text-green-200" />
-              <span className="font-medium">Fast Delivery</span>
+              <ApperIcon name="Users" className="w-5 h-5 mr-2 text-green-200" />
+              <span className="font-medium">Expert Support</span>
             </div>
           </motion.div>
 
@@ -78,19 +78,15 @@ const WhatsAppBanner = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Button
               onClick={handleWhatsAppClick}
               size="xl"
-              className="bg-white text-green-600 hover:bg-green-50 shadow-2xl text-lg px-8 py-4 font-bold transform hover:scale-105 transition-all duration-300"
+              className="bg-white text-green-600 hover:bg-green-50 shadow-2xl text-lg px-8 py-4 font-bold"
             >
               <ApperIcon name="MessageCircle" className="w-6 h-6 mr-3" />
-              Order Now on WhatsApp
+              Start WhatsApp Chat
             </Button>
-            <div className="text-green-100 text-sm">
-              <span className="font-medium">Response time: Under 2 minutes</span>
-            </div>
           </motion.div>
 
           <motion.div
@@ -100,12 +96,12 @@ const WhatsAppBanner = () => {
             transition={{ delay: 0.6 }}
             className="mt-8 text-green-100 text-sm"
           >
-            <p className="font-medium mb-2">Why order through WhatsApp?</p>
-            <div className="flex flex-wrap justify-center gap-6 mt-2 text-xs">
-              <span>🛒 Quick Product Browsing</span>
-              <span>💬 Real-time Order Updates</span>
-              <span>🎁 Chat-only Special Offers</span>
-              <span>📞 Direct Customer Support</span>
+            <p>Chat with us on WhatsApp for:</p>
+            <div className="flex flex-wrap justify-center gap-4 mt-2 text-xs">
+              <span>• Product Questions</span>
+              <span>• Order Tracking</span>
+              <span>• Returns & Exchanges</span>
+              <span>• Technical Support</span>
             </div>
           </motion.div>
         </div>
